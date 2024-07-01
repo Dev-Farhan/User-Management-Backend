@@ -23,16 +23,8 @@ app.use((req, res, next) => {
 });
 
 // API Routes
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/user', userRoutes);
-
-// Handle 404 errors
-app.all('*', (req, res, next) => {
-  const error = new Error(`Route ${req.originalUrl} not found`);
-  error.statusCode = 404;
-  next(error);
-});
-
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/user", userRoutes);
 
 // Start the server and connect to the database
 const port = process.env.PORT || 4000;
